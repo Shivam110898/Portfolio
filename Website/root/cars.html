@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Transp</title>
+      <link rel="icon" type="image/png" href="assets/logo.png"/>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/house.css">
+   </head>
+   <body>
+      <a href="index.html"><img src="assets/logo.png" alt="Transp"></a>
+      <nav class="col-3 col-m-3">
+         <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Cars</a></li>
+            <li><a href="bikes.html">Bikes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="demo.html">Demo</a></li>
+         </ul>
+         <img src="assets/cart.png" alt="View Cart" onclick="location.href = 'cart.html'" width="200">
+         <input type="text" id="searchString" onkeyup="search()" placeholder="Search for Cars...">
+      </nav>
+      <header class="heading">
+         <label>Cars</label>
+      </header>
+      <section id="site">
+         <div class="col-9 col-m-9">
+            <div class="products" id="product">
+               <ul id="myUl">
+                  <li>
+                     <div class="currentProduct">
+                        <div class="product-image">
+                           <img id="car-image" src="assets/bmw/car1.png" alt="" />
+                           <button class="button" onclick="onCarChange(-1)">Previous Colour</button>
+                           <button class="button" onclick="onCarChange(+1)">Next Colour</button>
+                        </div>
+                        <div class="product-description" data-name="BMW 6 Series Coupe" data-price="46260">
+                           <h3 class="product-name">BMW 6 Series Coupe</h3>
+                           <p class="product-price">&pound; 46260</p>
+                           <form class="add-to-cart" action="cart.html">
+                              <div>
+                                 <label for="qty-1">Quantity</label>
+                                 <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+                              </div>
+                              <p><button type="submit" value="Add to cart" class="button btn">Add to Cart</button></p>
+                           </form>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="currentProduct">
+                        <div class="product-image">
+                           <img id="car-image2" src="assets/bmw/bmwI1.png" alt="" />
+                           <button class="button" onclick="onCarChange2(-1)">Previous Colour</button>
+                           <button class="button" onclick="onCarChange2(+1)">Next Colour</button>
+                        </div>
+                        <div class="product-description" data-name="BMW I8" data-price="106010">
+                           <h3 class="product-name">BMW I8</h3>
+                           <p class="product-price">&pound; 106010</p>
+                           <form class="add-to-cart" action="cart.html">
+                              <div>
+                                 <label for="qty-1">Quantity</label>
+                                 <input type="text" name="qty-2" id="qty-2" class="qty" value="1" />
+                              </div>
+                              <p><button type="submit" value="Add to cart" class="button btn">Add to Cart</button></p>
+                           </form>
+                        </div>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </section>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+      <script type="text/javascript" src="script/house.js"></script>
+      <script type="text/javascript" src="script/search.js"></script>
+      <script type="text/javascript">
+          //first car images
+         var carImages =
+             [    
+                 "assets/bmw/car1.png",
+                 "assets/bmw/car2.png",
+                 "assets/bmw/car3.png"
+             ];
+         //second car images
+         var carImages2 =
+         [    
+         "assets/bmw/bmwI1.png",
+         "assets/bmw/bmwI2.png",
+         "assets/bmw/bmwI3.png"
+         ];
+        //car index variables set to 0
+         var carIndex, carIndex2;
+         carIndex = 0;
+         carIndex2 = 0;
+         //car images
+         var carImage, carImage2;
+        //when the window loads, get the html id of the images and assign them to the car images
+         window.onload = function()
+         {
+         carImage  = document.getElementById("car-image");
+         carImage2 = document.getElementById("car-image2");
+         //Set images initially
+         onImageChanged();
+         }
+         //change the car images
+         function onCarChange(offset)
+         {   
+         var offsetIndex = (carIndex + offset);
+         if(offsetIndex < 0)
+         carIndex = carImages.length + offset;
+         else
+         carIndex = (carIndex + offset) % carImages.length;
+         onImageChanged();
+         }
+          //change car 2 images
+         function onCarChange2(offset)
+         {   
+         var offsetIndex = (carIndex2 + offset);
+         if(offsetIndex < 0)
+         carIndex2 = carImages2.length + offset;
+         else
+         carIndex2 = (carIndex2 + offset) % carImages2.length;
+         onImageChanged();
+         }
+        //set the source of the html image to the current image in array
+         function onImageChanged()
+         {
+         carImage.src = carImages[carIndex];
+         carImage2.src = carImages2[carIndex2];
+         }
+         
+      </script>
+   </body>
+</html>

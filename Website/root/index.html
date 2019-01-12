@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Transp</title>
+      <link rel="icon" type="image/png" href="assets/logo.png"/>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/house.css">
+   </head>
+   <body>
+         <a href="index.html"><img src="assets/logo.png" alt="Transp"></a>
+         <nav class="col-3 col-m-3 menu">
+            <ul>
+               <li><a href="#.html">Home</a></li>
+               <li><a href="cars.html">Cars</a></li>
+               <li><a href="bikes.html">Bikes</a></li>
+               <li><a href="about.html">About</a></li>
+               <li><a href="demo.html">Demo</a></li>
+            </ul>
+             <h2>Opening times:</h2>
+               <p>Monday - Friday : 9am to 5pm</p>
+               <p>Saturday, Sunday : Closed</p>
+                <h2>Contact Us</h2>
+                <p>transp@gmail.com</p>
+                <p>078964546454</p>
+                <p>01506 444535</p>
+         </nav>
+         <header class="heading">
+            <h3>Transp Motors. Find your drive.</h3>
+         </header>
+        <section id="site">
+         <div class="col-9 col-m-9">
+            <div class="showCars">
+                 <div class="car trans">
+                    <img src="assets/bmw/bikeG310GS.png" alt="" style="width:50%; height: ;">
+                </div>
+                 <div class="car trans">
+                    <img src="assets/audi/R8.png" alt="" style="width:50%; height:300px;">
+                 </div>
+                <div class="car trans">
+                    <img src="assets/bmw/car1.png" alt="" style="width:50%; height:300px;">
+                </div>
+                <div class="car trans">
+                    <img src="assets/bmw/x5.png" alt="" style="width:50%; height:300px;">
+                </div>
+             </div>
+                <div class="reviews">
+                 <h2 style="text-align:center;">User Testimonial</h2>
+                 <div class="customer trans">
+                    <img src="assets/johnCustomer.png" alt="Customer" style="width:50%; height:300px;">
+                    <div class="container">
+                        <h4><b>John Dawson</b></h4> 
+                        <p>"Loved the customer service, and the staff was really helpful."</p> 
+                    </div>
+                </div>
+                 <div class="customer trans">
+                    <img src="assets/lucyCustomer.png" alt="Customer" style="width:50%; height:300px;">
+                    <div class="container">
+                        <h4><b>Lucy Jobs</b></h4> 
+                        <p>"The website is really easy to navigate around."</p> 
+                    </div>
+                 </div>
+                <div class="customer trans">
+                    <img src="assets/robertCustomer.png" alt="Customer" style="width:50%; height:300px;">
+                    <div class="container">
+                        <h4><b>Robert Pot</b></h4> 
+                        <p>"The website is really user friendly, and very cool looking."</p> 
+                    </div>
+                </div>
+             </div>
+         </div>
+       </section>
+       <script type="text/javascript">
+           var reviewIndex = 0;
+           var carIndex = 0;
+            showReviews();
+           showCars();
+
+           function showReviews() {
+                var i;
+                var slides = document.getElementsByClassName("customer");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none"; 
+                }
+               reviewIndex++;
+               if (reviewIndex> slides.length) {reviewIndex = 1} 
+                slides[reviewIndex-1].style.display = "block"; 
+                setTimeout(showReviews, 2000); // Change image every 2 seconds
+             }
+                function showCars() {
+                var i;
+                var slides = document.getElementsByClassName("car");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none"; 
+                }
+               carIndex++;
+               if (carIndex> slides.length) {carIndex = 1} 
+                slides[carIndex-1].style.display = "block"; 
+                setTimeout(showCars, 2000); // Change image every 2 seconds
+             } 
+       </script>
+   </body>
+</html>

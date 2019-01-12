@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Transp</title>
+      <link rel="icon" type="image/png" href="assets/logo.png"/>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/house.css">
+   </head>
+   <body>
+      <a href="index.html"><img src="assets/logo.png" alt="Transp"></a>
+      <nav class="col-3 col-m-3 menu">
+         <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cars.html">Cars</a></li>
+            <li><a href="#">Bikes</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="demo.html">Demo</a></li>
+         </ul>
+         <img src="assets/cart.png" alt="View Cart" onclick="location.href = 'cart.html'" width="200">
+         <input type="text" id="searchString" onkeyup="search()" placeholder="Search for Bikes...">
+      </nav>
+      <header class="heading">
+         <label>Bikes</label>
+      </header>
+      <section id="site">
+         <div class="col-9 col-m-9">
+            <div class="products" id="product">
+               <ul id="myUl">
+                  <li>
+                     <div class="currentProduct">
+                        <div class="product-image">
+                           <img src="assets/bmw/bike1.png" id="bike-image" alt="" />
+                           <button class="button" onclick="onBikeChange(-1)">Previous Colour</button>
+                           <button class="button" onclick="onBikeChange(+1)">Next Colour</button>
+                        </div>
+                        <div class="product-description" data-name="BMW G 310 R" data-price="4290">
+                           <h3 class="product-name">BMW G 310 R</h3>
+                           <p class="product-price">&pound; 4290</p>
+                           <form class="add-to-cart" action="cart.html">
+                              <div>
+                                 <label for="qty-1">Quantity</label>
+                                 <input type="text" name="qty-1" id="qty-1" class="qty" value="1" />
+                              </div>
+                              <p><button type="submit" value="Add to cart" class="button btn">Add to Cart</button></p>
+                           </form>
+                        </div>
+                     </div>
+                  </li>
+                  <li>
+                     <div class="currentProduct">
+                        <div class="product-image">
+                           <img src="assets/ktm/ktm1.png" id="bike-image2" alt="" />
+                           <button class="button" onclick="onBikeChange2(-1)">Previous Colour</button>
+                           <button class="button" onclick="onBikeChange2(+1)">Next Colour</button>
+                        </div>
+                        <div class="product-description" data-name="KTM 1290 SUPER R DUKE" data-price="13999">
+                           <h3 class="product-name">KTM 1290 SUPER R DUKE</h3>
+                           <p class="product-price">&pound; 13999</p>
+                           <form class="add-to-cart" action="cart.html">
+                              <div>
+                                 <label for="qty-1">Quantity</label>
+                                 <input type="text" name="qty-2" id="qty-2" class="qty" value="1" />
+                              </div>
+                              <p><button type="submit" value="Add to cart" class="button btn">Add to Cart</button></p>
+                           </form>
+                        </div>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </section>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+      <script type="text/javascript" src="script/house.js"></script>
+      <script type="text/javascript" src="script/search.js"></script>
+      <script type="text/javascript">
+          //first bike array of images
+         var bikeImages =
+         [    
+             "assets/bmw/bike1.png",
+             "assets/bmw/bike2.png",
+             "assets/bmw/bike3.png"
+         ];
+          //second bike array of images
+         var bikeImages2 =
+         [    
+             "assets/ktm/ktm.png",
+             "assets/ktm/ktm1.png",
+         ];
+         //bike index variables set to 0
+         var bikeIndex, bikeIndex2;
+         bikeIndex = 0;
+         bikeIndex2 = 0;
+         
+          //bike images
+         var bikeImage, bikeImage2;
+         
+        //when the window loads, get the html id of the images and assign them to the bike images
+         window.onload = function()
+         {
+         	//Get each element for the bike, and bike2.
+             bikeImage = document.getElementById("bike-image")
+             bikeImage2 = document.getElementById("bike-image2")
+         
+         	//Set images initially
+         	onImageChanged();
+         }
+         //change the bike images
+         function onBikeChange(offset)
+         {
+                 
+         	var offsetIndex = (bikeIndex + offset);
+         		if(offsetIndex < 0)
+         		  bikeIndex = bikeImages.length + offset;
+         		else
+         		  bikeIndex = (bikeIndex + offset) % bikeImages.length;
+             	   onImageChanged();
+         }
+          //change the bike 2 images
+        function onBikeChange2(offset)
+         {
+                 
+         	var offsetIndex = (bikeIndex2 + offset);
+         		if(offsetIndex < 0)
+         		  bikeIndex2 = bikeImages2.length + offset;
+         		else
+         		  bikeIndex2 = (bikeIndex2 + offset) % bikeImages2.length;
+             	   onImageChanged();
+         }
+          //set the source of the html image to the current image in array
+         function onImageChanged()
+         {
+             bikeImage.src = bikeImages[bikeIndex];
+            bikeImage2.src = bikeImages2[bikeIndex2];
+         
+         }
+         
+                
+      </script>
+   </body>
+</html>

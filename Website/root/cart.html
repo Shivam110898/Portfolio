@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Transp</title>
+      <link rel="icon" type="image/png" href="assets/logo.png"/>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/house.css">
+   </head>
+   <body>
+       
+         <a href="index.html"><img src="assets/logo.png" alt="Transp"></a>
+         <nav class="col-3 col-m-3 menu">
+            <ul>
+               <li><a href="index.html">Home</a></li>
+               <li><a href="cars.html">Cars</a></li>
+               <li><a href="bikes.html">Bikes</a></li>
+               <li><a href="about.html">About</a></li>
+            </ul>
+            <button class="button" onclick="window.history.back();">Go back</button>
+         </nav>
+        <section id="site">
+         <div class="col-9 col-m-12">
+                  <h1>Your Shopping Cart</h1>
+                  <form id="shopping-cart" action="cart.html">
+                     <table class="shopping-cart">
+                        <thead>
+                           <tr>
+                              <th scope="col" style="width:30%;">Item</th>
+                              <th scope="col" style="width:40%;">Quantity</th>
+                              <th scope="col" style="width:30%;">Price</th>
+                              <th scope="col" style="width:30px;"></th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                     </table>
+                     <p id="sub-total">
+                        <strong>Sub Total</strong>: <span id="stotal"></span>
+                     </p>
+                     <div id="shopping-cart-actions">
+                        <a href="index.html" class="button btn">Continue Shopping</a>
+                         <button onclick="alert('This will pay for the items in the cart.')" class="button btn">Go To Checkout</button>
+                      </div>
+                  </form>
+            </div>
+        </section>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+      <script type="text/javascript" src="script/house.js"></script>
+   </body>
+</html>
