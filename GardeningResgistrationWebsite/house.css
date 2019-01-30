@@ -1,0 +1,32 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+* {
+	box-sizing: border-box;
+}
+body {
+	width: 100%;
+	height: 100%;
+	font-family:  Lato, sans-serif;
+    background-color: ghostwhite;
+	}
+
+.account-wall {
+	padding-top: 100px;
+}
+.jumbotron {
+	background-color:#2e978c;
+	color:#eeeeee;
+}
+.dropdown {
+	float:left;
+}
+.btn {
+	background-color:orange;
+	color:#eeeeee;
+}
+.sub {
+	background-color:#2e978c;
+}
+.dropup {
+ width:100px%;   
+}
