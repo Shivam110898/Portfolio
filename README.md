@@ -1,1 +1,1 @@
-Link to my personal site : www.shivampanday.netlify.com
+Link to my personal site : https://shivampanday.netlify.com/
